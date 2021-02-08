@@ -12,7 +12,7 @@ const createToken = role => {
     });
 };
 
-const home_get = async(req, res) => {
+const home_get = async (req, res) => {
     res.render('home');
 }
 
@@ -72,6 +72,6 @@ const activateAccount = (req, res) => {
     }
 }
 
-module.exports = { 
+module.exports = {
     home_get, login_get, login_post, logout_get, activateAccount
 }
