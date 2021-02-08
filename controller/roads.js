@@ -25,8 +25,8 @@ const getAllRoads = async (req, res, next) => {
                 const road = new Road(
                     doc.id,
                     doc.data().name,
-                    doc.data().lat,
-                    doc.data().lng
+                    doc.data().latitude,
+                    doc.data().longitude
                 );
                 roadsArray.push(road);
             });
@@ -53,6 +53,28 @@ const getRoadByID = async (req, res, next) => {
     }
 }
 
+const updateRoad = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const data = req.body;
+        const road = await firestore.collection('roads').doc(id);
+        await road.update(data);
+        res.send('Updated successfully!');
+    } catch (err) {
+        res.status(404).send(err.message);
+    }
+}
+
+const deleteRoad = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        await firestore.collection('roads').doc(id).delete();
+        res.send('Deleted successfully!');
+    } catch (err) {
+        res.status(404).send(err.message);
+    }
+}
+
 module.exports = {
-    addRoad, getAllRoads, getRoadByID
+    addRoad, getAllRoads, getRoadByID, updateRoad, deleteRoad
 };

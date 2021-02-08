@@ -53,6 +53,28 @@ const getDriverById = async (req, res, next) => {
     }
 }
 
+const updateDriver = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const data = req.body;
+        const driver = await firestore.collection('drivers').doc(id);
+        await driver.update(data);
+        res.send('Updated successfully!');
+    } catch (err) {
+        res.status(404).send(err.message);
+    }
+}
+
+const deleteDriver = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        await firestore.collection('drivers').doc(id).delete();
+        res.send('Deleted successfully!');
+    } catch (err) {
+        res.status(404).send(err.message);
+    }
+}
+
 module.exports = {
-    addDriver, getAllDrivers, getDriverById
+    addDriver, getAllDrivers, getDriverById, updateDriver, deleteDriver
 };

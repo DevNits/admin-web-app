@@ -12,15 +12,15 @@ const createToken = role => {
     });
 };
 
-module.exports.home_get = async(req, res) => {
+const home_get = async(req, res) => {
     res.render('home');
 }
 
-module.exports.login_get = async (req, res) => {
+const login_get = async (req, res) => {
     res.render('login');
 }
 
-module.exports.login_post = async (req, res) => {
+const login_post = async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -49,12 +49,12 @@ module.exports.login_post = async (req, res) => {
     }
 }
 
-module.exports.logout_get = (req, res) => {
+const logout_get = (req, res) => {
     res.cookie('jwt-fb', '', { maxAge: 1 });
     res.redirect('/api');
 }
 
-module.exports.activateAccount = (req, res) => {
+const activateAccount = (req, res) => {
     const token = req.params.token;
     if (token) {
         jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, decodedToken) => {
@@ -70,4 +70,8 @@ module.exports.activateAccount = (req, res) => {
     } else {
         res.redirect('/api/signup');
     }
+}
+
+module.exports = { 
+    home_get, login_get, login_post, logout_get, activateAccount
 }
