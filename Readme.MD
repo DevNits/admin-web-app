@@ -5,4 +5,5 @@
 <h4> Signout page :<span>'/api/signout' </span>  </h4>
 <h4> Fetch all drivers :<span>'/api/drivers' </span>  </h4>
 <h4> Fetch all roads :<span>'/api/roads' </span>  </h4>
+<h4> Assign Route to a driver :<span>'/api/road/:driverId/assign-route' </span>  </h4>
 </p>
