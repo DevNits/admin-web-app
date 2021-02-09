@@ -7,7 +7,7 @@ router.post('/drivers', addDriver);
 router.get('/drivers', getAllDrivers);
 router.get('/driver/:id', getDriverById);
 
-router.put('/driver/:id', updateDriver);
+router.post('/driver/:id/assign-route', updateDriver);
 router.delete('/driver/:id', deleteDriver);
 
 module.exports = router;

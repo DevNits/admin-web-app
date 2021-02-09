@@ -18,7 +18,7 @@ const {
 } = process.env;
 
 assert(PORT, 'PORT is required');
-assert(HOST, 'HOST os required');
+assert(HOST, 'HOST is required');
 
 module.exports = {
     port: PORT,
@@ -28,6 +28,7 @@ module.exports = {
         apiKey: APP_KEY,
         authDomain: AUTH_DOMAIN,
         projectId: PROJECT_ID,
+        databaseURL: DATABASE_URL,
         storageBucket: STORAGE_BUCKET,
         messagingSenderId: MESSAGE_SENDER_ID,
         appId: APP_ID,

@@ -8,7 +8,6 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-const studentRoutes = require('./routes/students');
 const roadRoutes = require('./routes/roads');
 const driverRoutes = require('./routes/drivers');
 const authRoutes = require('./routes/auth');
@@ -17,7 +16,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.use('/api', studentRoutes);
 app.use('/api', roadRoutes);
 app.use('/api', driverRoutes);
 app.use('/api', authRoutes);

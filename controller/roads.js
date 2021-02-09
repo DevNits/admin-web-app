@@ -2,6 +2,7 @@ const firebase = require('../db');
 const Road = require('../models/road');
 
 const firestore = firebase.firestore();
+// const db = firebase.database();
 
 const addRoad = async (req, res, next) => {
     try {

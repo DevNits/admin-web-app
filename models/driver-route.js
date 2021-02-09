@@ -1,5 +1,5 @@
-class Driver {
-    constructor(id, name, phone, route) {
+class DriverRoute {
+    constructor(id, name, latitude, longitude) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -7,4 +7,4 @@ class Driver {
     }
 }
 
-module.exports = Driver;
+module.exports = DriverRoute;
